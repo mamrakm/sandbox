@@ -1,6 +1,11 @@
 package sk.mamrakm;
 
-public class Jedi {
-    public void useTheLightForcePower() {
+public class Jedi implements Force {
+    private void useTheLightForcePower() {
+    }
+
+    @Override
+    public void useTheForce() {
+        useTheLightForcePower();
     }
 }
