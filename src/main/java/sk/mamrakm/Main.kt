@@ -1,13 +1,14 @@
 package sk.mamrakm
 
-import java.lang.String.valueOf
-import java.util.function.Consumer
+import org.springframework.context.ApplicationContext
+import org.springframework.context.annotation.AnnotationConfigApplicationContext
+
 
 object Main {
     @JvmStatic
     fun main(args: Array<String>) {
-        val kokotka : List<String> = listOf("A", "B", valueOf(10), valueOf(20), valueOf(30))
-        kokotka.forEach(Consumer {t -> println(t.javaClass); })
-        Kek<Jedi>().func()
+        val context: ApplicationContext = AnnotationConfigApplicationContext(Config::class.java)
+        val forceSensitive: ForceSensitive = context.getBean(ForceSensitive::class.java)
+        forceSensitive.doTheThing()
     }
 }
