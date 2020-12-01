@@ -1,13 +1,13 @@
-package sk.mamrakm;
+package sk.mamrakm
 
-public class ForceSensitive  {
-    private Force forceUser;
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
+import sk.mamrakm.Force
 
-    public ForceSensitive(Force forceUser1) {
-        forceUser = forceUser1;
-    }
-
-    void doTheThing() {
-        forceUser.useTheForce();
+@Component
+class ForceSensitive @Autowired constructor(private val forceUser: Force) {
+    constructor() : this(Jedi())
+    fun doTheThing() {
+        forceUser.useTheForce()
     }
 }
